@@ -1,7 +1,6 @@
 import java.awt.*;
 import java.awt.geom.*;
 import java.util.Random;
-import java.util.HashSet;
 
 /**
  * Write a description of class BoxBall here.
@@ -17,7 +16,8 @@ public class BoxBall
     private int xPosition;
     private int yPosition;
     private Canvas canvas;
-    private int speed;
+    private int xSpeed;
+    private int ySpeed;
     private Random rand = new Random();
 
     /**
@@ -25,22 +25,55 @@ public class BoxBall
      */
     public BoxBall(int ballDiameter, Color ballColor, Canvas drawingCanvas)
     {
-        xPosition = rand.nextInt();
+        xPosition = rand.nextInt(500) + 50;
         yPosition = rand.nextInt();
         color = ballColor;
         diameter = ballDiameter;
         canvas = drawingCanvas;
-        speed = rand.nextInt();
+        xSpeed = 1;
+        ySpeed = 1;
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
+     * Erase this ball at its current position.
+     **/
+    public void erase()
     {
-        
+        canvas.eraseCircle(xPosition, yPosition, diameter);
+    }
+    
+    /**
+     * Move this ball according to its position and speed and redraw.
+     **/
+    public void move()
+    {
+        // remove from canvas at the current position
+        erase();
+            
+        // compute new position
+        yPosition += ySpeed;
+        xPosition += xSpeed;
+
+        // check if it has hit the ground
+        if (yPosition >= 550 || yPosition <= 66) 
+        {
+            ySpeed *= -1;
+        }
+        if(xPosition >= 536 || xPosition <= 50)
+        {
+            xSpeed *= -1;
+        }
+
+        // draw again at new position
+        draw();
+    }
+    
+    /**
+     * Draw this ball at its current position onto the canvas.
+     **/
+    public void draw()
+    {
+        canvas.setForegroundColor(color);
+        canvas.fillCircle(xPosition, yPosition, diameter);
     }
 }
