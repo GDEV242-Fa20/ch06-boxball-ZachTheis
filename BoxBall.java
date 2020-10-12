@@ -30,11 +30,11 @@ public class BoxBall
         color = ballColor;
         diameter = ballDiameter;
         canvas = drawingCanvas;
-        //do
-        //{
+        do
+        {
             xSpeed = rand.nextInt(10) - 5;
             ySpeed = rand.nextInt(10) - 5;
-        //} while(xSpeed != 0 && ySpeed != 0);
+        } while(xSpeed == 0 || ySpeed == 0);
     }
 
     /**
