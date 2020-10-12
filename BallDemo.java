@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.util.HashSet;
 
 /**
  * Class BallDemo - a short demonstration showing animation with the 
@@ -11,7 +12,8 @@ import java.awt.Color;
 public class BallDemo   
 {
     private Canvas myCanvas;
-
+    private HashSet<BoxBall> balls = new HashSet<>();
+    
     /**
      * Create a BallDemo object. Creates a fresh canvas and makes it visible.
      */
@@ -50,5 +52,21 @@ public class BallDemo
                 finished = true;
             }
         }
+    }
+    
+    public void boxBounce(int ballNumber)
+    {
+        myCanvas.drawLine(50, 50, 50, 550);
+        myCanvas.drawLine(50, 550, 550, 550);
+        myCanvas.drawLine(550, 550, 550, 50);
+        myCanvas.drawLine(550, 50, 50, 50);
+        
+        int index = 0;
+        while(index < ballNumber)
+        {
+            balls.add(new BoxBall(16, Color.BLUE, myCanvas));
+            index++;
+        }
+        //for(
     }
 }
