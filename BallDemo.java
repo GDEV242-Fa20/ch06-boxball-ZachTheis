@@ -67,13 +67,7 @@ public class BallDemo
         
         int index = 0;
         int bounce = 0;
-        while(ballNumber < 5 || ballNumber > 30)
-        {
-            Scanner ballChoice = new Scanner(System.in);
-            System.out.println("Please enter a number between 5 and 30:");
-            
-            ballNumber = ballChoice.nextInt();
-        }
+
         do
         {
             balls.add(new BoxBall(16, Color.BLUE, myCanvas));
