@@ -3,7 +3,9 @@ import java.awt.geom.*;
 import java.util.Random;
 
 /**
- * Write a description of class BoxBall here.
+ * This creates a ball for use with the boxBall method of BallDemo. Balls
+ * have a random speed and starting position. They will invert their speed
+ * when they encounter one of the walls of the box.
  *
  * @author Zach Theis
  * @version 2020.10.12

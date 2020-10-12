@@ -6,8 +6,8 @@ import java.util.Scanner;
  * Class BallDemo - a short demonstration showing animation with the 
  * Canvas class. 
  *
- * @author Michael Kölling and David J. Barnes
- * @version 2016.02.29
+ * @author Zach Theis
+ * @version 2020.10.12
  */
 
 public class BallDemo   
@@ -55,6 +55,12 @@ public class BallDemo
         }
     }
     
+    /**
+     * This creates between 5 and 30 balls inside a box. The balls start at
+     * random positions and move at random speeds. When they reach a wall
+     * of the box, they "bounce" off of it.
+     * @param ballNumber The number of balls to create.
+     */
     public void boxBounce(int ballNumber)
     {
         while(ballNumber < 5 || ballNumber > 30)
