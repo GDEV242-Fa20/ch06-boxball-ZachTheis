@@ -25,13 +25,13 @@ public class BoxBall
      */
     public BoxBall(int ballDiameter, Color ballColor, Canvas drawingCanvas)
     {
-        xPosition = rand.nextInt(500) + 50;
-        yPosition = rand.nextInt();
+        xPosition = rand.nextInt(300) + 50;
+        yPosition = rand.nextInt(300) + 50;
         color = ballColor;
         diameter = ballDiameter;
         canvas = drawingCanvas;
         xSpeed = 1;
-        ySpeed = 1;
+        ySpeed = 2;
     }
 
     /**
@@ -55,13 +55,15 @@ public class BoxBall
         xPosition += xSpeed;
 
         // check if it has hit the ground
-        if (yPosition >= 550 || yPosition <= 66) 
+        if (yPosition >= 340 || yPosition <= 51) 
         {
             ySpeed *= -1;
+            yPosition += ySpeed;
         }
-        if(xPosition >= 536 || xPosition <= 50)
+        if(xPosition >= 335 || xPosition <= 51)
         {
             xSpeed *= -1;
+            xPosition += xSpeed;
         }
 
         // draw again at new position

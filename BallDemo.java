@@ -56,17 +56,29 @@ public class BallDemo
     
     public void boxBounce(int ballNumber)
     {
-        myCanvas.drawLine(50, 50, 50, 550);
-        myCanvas.drawLine(50, 550, 550, 550);
-        myCanvas.drawLine(550, 550, 550, 50);
-        myCanvas.drawLine(550, 50, 50, 50);
+        myCanvas.setVisible(true);
+        
+        myCanvas.setForegroundColor(Color.BLACK);
+        myCanvas.drawLine(50, 50, 350, 50);
+        myCanvas.drawLine(350, 50, 350, 350);
+        myCanvas.drawLine(350, 350, 50, 350);
+        myCanvas.drawLine(50, 350, 50, 50);
         
         int index = 0;
-        while(index < ballNumber)
+        int bounce = 0;
+        do
         {
             balls.add(new BoxBall(16, Color.BLUE, myCanvas));
             index++;
-        }
-        //for(
+        } while(index < ballNumber);
+        while(bounce < 500)
+        {
+            myCanvas.wait(50);
+            for(BoxBall ball : balls)
+            {
+                ball.move();
+            }
+            bounce++;
+        }      
     }
 }
