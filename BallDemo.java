@@ -57,6 +57,13 @@ public class BallDemo
     
     public void boxBounce(int ballNumber)
     {
+        while(ballNumber < 5 || ballNumber > 30)
+        {
+            Scanner ballChoice = new Scanner(System.in);
+            System.out.println("Please enter a number between 5 and 30:");
+            
+            ballNumber = ballChoice.nextInt();
+        }
         myCanvas.setVisible(true);
         
         myCanvas.setForegroundColor(Color.BLACK);
