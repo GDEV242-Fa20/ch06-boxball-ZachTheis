@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Random;
 
 /**
  * Class BallDemo - a short demonstration showing animation with the 
@@ -14,6 +15,7 @@ public class BallDemo
 {
     private Canvas myCanvas;
     private HashSet<BoxBall> balls = new HashSet<>();
+    private Random rand;
     
     /**
      * Create a BallDemo object. Creates a fresh canvas and makes it visible.
@@ -56,13 +58,17 @@ public class BallDemo
     }
     
     /**
-     * This creates between 5 and 30 balls inside a box. The balls start at
-     * random positions and move at random speeds. When they reach a wall
-     * of the box, they "bounce" off of it.
+     * This creates between 5 and 30 randomly colored balls inside a box. 
+     * The balls start at random positions and move at random speeds. 
+     * When they reach a wall of the box, they "bounce" off of it.
      * @param ballNumber The number of balls to create.
      */
     public void boxBounce(int ballNumber)
     {
+        int rColor;
+        int gColor;
+        int bColor;
+        Random rand = new Random();
         while(ballNumber < 5 || ballNumber > 30)
         {
             Scanner ballChoice = new Scanner(System.in);
@@ -83,7 +89,14 @@ public class BallDemo
 
         do
         {
-            balls.add(new BoxBall(16, Color.BLUE, myCanvas));
+            do
+            {
+                rColor = rand.nextInt(255);
+                gColor = rand.nextInt(255);
+                bColor = rand.nextInt(255);
+            }while(rColor > 225 && gColor > 225 && bColor>225);
+            Color ballColor = new Color(rColor, gColor, bColor);
+            balls.add(new BoxBall(16, ballColor, myCanvas));
             index++;
         } while(index < ballNumber);
         while(bounce < 500)

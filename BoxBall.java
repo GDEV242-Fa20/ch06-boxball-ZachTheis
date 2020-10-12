@@ -34,8 +34,8 @@ public class BoxBall
         canvas = drawingCanvas;
         do
         {
-            xSpeed = rand.nextInt(10) - 5;
-            ySpeed = rand.nextInt(10) - 5;
+            xSpeed = rand.nextInt(15) - 7;
+            ySpeed = rand.nextInt(15) - 7;
         } while(xSpeed == 0 || ySpeed == 0);
     }
 
